@@ -16,20 +16,9 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [showLoading, setShowLoading] = useState(true);
 
-  useEffect(() => {
-    // Check if user has visited before
-    const hasVisited = localStorage.getItem('gitfolio-visited');
-    if (hasVisited) {
-      setIsFirstLoad(false);
-      setShowLoading(false);
-    }
-  }, []);
-
   const handleLoadingComplete = () => {
-    localStorage.setItem('gitfolio-visited', 'true');
     setShowLoading(false);
   };
 
@@ -40,7 +29,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <AnimatePresence mode="wait">
-            {isFirstLoad && showLoading ? (
+            {showLoading ? (
               <LoadingScreen key="loading" onComplete={handleLoadingComplete} />
             ) : (
               <BrowserRouter key="app">
