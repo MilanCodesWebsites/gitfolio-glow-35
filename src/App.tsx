@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { LoadingScreen } from "@/components/LoadingScreen";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import { Landing } from "@/pages/Landing";
 import { Portfolio } from "@/pages/Portfolio";
 import { Projects } from "@/pages/Projects";
@@ -33,28 +34,30 @@ const App = () => {
   };
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <AnimatePresence mode="wait">
-          {isFirstLoad && showLoading ? (
-            <LoadingScreen key="loading" onComplete={handleLoadingComplete} />
-          ) : (
-            <BrowserRouter key="app">
-              <Routes>
-                <Route path="/" element={<Landing />} />
-                <Route path="/:username" element={<Portfolio />} />
-                <Route path="/:username/projects" element={<Projects />} />
-                <Route path="/:username/contact" element={<Contact />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          )}
-        </AnimatePresence>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <AnimatePresence mode="wait">
+            {isFirstLoad && showLoading ? (
+              <LoadingScreen key="loading" onComplete={handleLoadingComplete} />
+            ) : (
+              <BrowserRouter key="app">
+                <Routes>
+                  <Route path="/" element={<Landing />} />
+                  <Route path="/:username" element={<Portfolio />} />
+                  <Route path="/:username/projects" element={<Projects />} />
+                  <Route path="/:username/contact" element={<Contact />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </BrowserRouter>
+            )}
+          </AnimatePresence>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 };
 
