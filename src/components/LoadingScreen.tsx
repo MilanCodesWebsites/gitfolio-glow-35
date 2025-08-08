@@ -57,7 +57,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h1 className="text-6xl font-bold font-mono text-gradient animate-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-mono text-gradient animate-glow">
             {"{ Gitfolio }"}
           </h1>
         </motion.div>
