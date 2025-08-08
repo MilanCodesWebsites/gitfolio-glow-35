@@ -183,7 +183,7 @@ export const Landing = () => {
               </a>
             </p>
             <p className="text-xs text-muted-foreground/60">
-              © 2024 Gitfolio. Open source & made with ❤️
+              © 2025 Gitfolio. Open source & made with ❤️
             </p>
           </div>
         </footer>
