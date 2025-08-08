@@ -73,7 +73,7 @@ export const Landing = () => {
                 <span className="text-primary">in Seconds</span>
               </h2>
               <p className="text-xl md:text-2xl text-muted-foreground font-light">
-                From GitHub to Gorgeous — Instantly.
+                Enter your username. Get a stunning portfolio. It's that simple.
               </p>
             </motion.div>
 
