@@ -144,8 +144,7 @@ export const Landing = () => {
                 About the dev
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Gitfolio was crafted with passion to help developers showcase their work beautifully. 
-                Built with modern web technologies and a focus on user experience.
+                i just make stuff. sometimes it’s code, sometimes it’s nothing. if it works, cool. if it doesn’t, i’ll probably fix it later. if i’m not busy coding, i’m probably texting my favorite distraction.
               </p>
             </div>
             
